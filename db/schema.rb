@@ -13,10 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_07_01_044626) do
 
   create_table "countries", id: false, force: :cascade do |t|
-    t.integer "id", null: false
+    t.integer "id"
     t.string "iso"
     t.string "name"
-    t.index ["id"], name: "index_countries_on_id", unique: true
   end
 
   create_table "countries_lists", force: :cascade do |t|
