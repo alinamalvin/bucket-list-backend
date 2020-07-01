@@ -1,3 +1,4 @@
 class List < ActiveRecord::Base
-    has_and_belongs_to_many :countries
+    has_many :countries_lists
+    has_many :countries, :through => :countries_lists
 end

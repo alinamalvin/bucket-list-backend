@@ -1,4 +1,4 @@
-class CountriesController < ActionController::API
+class ListsController < ActionController::API
     def index
        render :json => List.all
     end

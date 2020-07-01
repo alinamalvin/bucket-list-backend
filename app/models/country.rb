@@ -1,4 +1,5 @@
 class Country < ActiveRecord::Base
     self.primary_key = "id"
-    has_and_belongs_to_many :lists
+    has_many :countries_lists
+    has_many :lists, :through => :countries_lists
 end

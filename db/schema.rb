@@ -10,19 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_223445) do
+ActiveRecord::Schema.define(version: 2020_07_01_044626) do
 
   create_table "countries", id: false, force: :cascade do |t|
-    t.integer "id"
+    t.integer "id", null: false
     t.string "iso"
     t.string "name"
+    t.index ["id"], name: "index_countries_on_id", unique: true
   end
 
-  create_table "countries_lists", id: false, force: :cascade do |t|
-    t.integer "list_id"
+  create_table "countries_lists", force: :cascade do |t|
+    t.integer "countries_id"
+    t.integer "lists_id"
     t.integer "country_id"
-    t.index ["country_id"], name: "index_countries_lists_on_country_id"
-    t.index ["list_id"], name: "index_countries_lists_on_list_id"
+    t.integer "list_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["countries_id"], name: "index_countries_lists_on_countries_id"
+    t.index ["lists_id"], name: "index_countries_lists_on_lists_id"
   end
 
   create_table "lists", force: :cascade do |t|
