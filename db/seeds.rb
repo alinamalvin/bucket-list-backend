@@ -250,3 +250,4 @@ Country.create(:id=>249,:iso=>"ZW",:name=>"Zimbabwe")
 Country.create(:id=>250,:iso=>"CS",:name=>"Serbia and Montenegro")
 Country.create(:id=>251,:iso=>"AN",:name=>"Netherlands Antilles")
 
+List.create(:name=>"AlinasList")

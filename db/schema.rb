@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_151048) do
+ActiveRecord::Schema.define(version: 2020_06_30_223445) do
 
-  create_table "countries", force: :cascade do |t|
-    t.string "id_integer"
+  create_table "countries", id: false, force: :cascade do |t|
+    t.integer "id"
     t.string "iso"
+    t.string "name"
+  end
+
+  create_table "countries_lists", id: false, force: :cascade do |t|
+    t.integer "list_id"
+    t.integer "country_id"
+    t.index ["country_id"], name: "index_countries_lists_on_country_id"
+    t.index ["list_id"], name: "index_countries_lists_on_list_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
     t.string "name"
   end
 
