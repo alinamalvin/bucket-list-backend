@@ -1,5 +1,8 @@
+# require 'pry'
+
 class ListsController < ActionController::API
     def index
+       # binding.pry
        render :json => List.all
     end
 
@@ -8,6 +11,11 @@ class ListsController < ActionController::API
         list = List.create(name: params[:name], country: country)
         render :json => list, :include => :country, :status => 201
     end 
+
+    def show
+        render :json => List.find_by(id: params["id"])
+    end
+
 
     def destroy
        list = Item.find(params[:id])
