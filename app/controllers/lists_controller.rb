@@ -31,6 +31,6 @@ class ListsController < ActionController::API
     private
 
     def list_params
-        params.require(:list).permit(:name)
+        params.require(:list).permit(:name, :country)
     end
 end
