@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :lists, only: [:index, :create, :show, :destroy] do
-     resources :countries, only: [:index, :update]
+  resources :lists do
+     resources :countries
    end
-  resources :countries, only: [:index]
+  resources :countries 
 
-  root 'countries#index'
 end
+
+# Rails.application.routes.draw do
+
+#   resources :lists, only: [:index, :create, :show, :destroy] do
+#      resources :countries, only: [:index, :create]
+#    end
+#   resources :countries , only: [:index]
+
+#   root 'countries#index'
+# end
